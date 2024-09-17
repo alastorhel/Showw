@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Showw.Questao1"
+             Shell.NavBarIsVisible="false"
+             BackgroundColor="#338f76">
+
+       
+        <Grid>
+         
+
+            <Grid.RowDefinitions>
+      
+      <RowDefinition Height="150"/>
+      <RowDefinition Height="50"/>
+      <RowDefinition Height="50"/>
+      <RowDefinition Height="50"/>
+      <RowDefinition Height="50"/>
+    </Grid.RowDefinitions>
+
+      <Image Source="milhao.jpg"
+           Opacity=".6"
+           Aspect="AspectFill"
+           VerticalOptions="Start"
+           Margin="5,50,10,0"
+            Grid.Row="0"/>
+                
+
+    <Label Text="O QUE VOCE FAZ?!"
+           TextColor="Black"
+           BackgroundColor="White"
+           FontSize="14"
+           Opacity="0.9"
+           HorizontalOptions="Fill"
+           HorizontalTextAlignment="Center"
+           VerticalOptions="Start"
+           HeightRequest="50"
+           Grid.Row="1"/>
+
+
+        <Button Text="Ataca-la"
+                TextColor="white"
+                 BackgroundColor="Blue"
+                FontSize="12"
+              HeightRequest="60"
+              Margin="0,0,0,0"
+                Grid.Row="3"/>
+        </Grid>
+
+
+    
+             
+</ContentPage>

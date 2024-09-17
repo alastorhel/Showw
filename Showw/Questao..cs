@@ -17,26 +17,26 @@ public class Questao
 
     public string resposta5;
 
-     public int respostacerta;
+    public int respostacerta;
 
-     public int nivel;
+    public int nivel;
 
     Label labelpergunta;
-    
+
     Button buttonResposta1;
 
-     Button buttonResposta2;
+    Button buttonResposta2;
 
-     Button buttonResposta3;
+    Button buttonResposta3;
 
-     Button buttonResposta4;
+    Button buttonResposta4;
 
-     Button buttonResposta5;
+    Button buttonResposta5;
 
-     
+
     public void Desenhar()
     {
-            labelpergunta.Text = pergunta;
+        labelpergunta.Text = pergunta;
         buttonResposta1.Text = resposta1;
         buttonResposta2.Text = resposta2;
         buttonResposta3.Text = resposta3;
@@ -44,9 +44,24 @@ public class Questao
         buttonResposta5.Text = resposta5;
     }
 
-    public void VerificarResposta()
+    public bool VerificarResposta(int respostaescolhida)
     {
-        
+        if (respostacerta == respostaescolhida)
+        {
+            var coisa = QualBotaoescolhido(respostaescolhida);
+            coisa.BackgroundColor = Colors.Green;
+            return true;
+        }
+        else
+        {
+
+            var coisaCorreto = QualBotaoescolhido(respostacerta);
+            var coisaIncorreta = QualBotaoescolhido(respostaescolhida);
+            coisaCorreto.BackgroundColor = Colors.Yellow;
+            coisaIncorreta.BackgroundColor = Colors.Red;
+            return false;
+
+        }
     }
 
     public void ConfigurarEstruturaDesenho(Label pergunta, Button resposta1, Button resposta2, Button resposta3, Button resposta4, Button resposta5)
@@ -73,5 +88,21 @@ public class Questao
         buttonResposta4 = resposta4;
         buttonResposta5 = resposta5;
 
+    }
+
+    private Button QualBotaoescolhido(int respostaescolhida)
+    {
+        if (respostaescolhida == 1)
+            return buttonResposta1;
+        else if (respostaescolhida == 2)
+            return buttonResposta2;
+        else if (respostaescolhida == 3)
+            return buttonResposta3;
+        else if (respostaescolhida == 4)
+            return buttonResposta4;
+        else if (respostaescolhida == 5)
+            return buttonResposta5;
+        else 
+                return null;
     }
 }
