@@ -1,53 +1,102 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Showw.Questao1"
              Shell.NavBarIsVisible="false"
-             BackgroundColor="#338f76">
+             x:Class="Showw.Questao1">
 
-       
-        <Grid>
-         
 
-            <Grid.RowDefinitions>
-      
-      <RowDefinition Height="150"/>
+  <Grid  RowSpacing="5"
+         ColumnSpacing="10">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="100"/>
       <RowDefinition Height="50"/>
       <RowDefinition Height="50"/>
       <RowDefinition Height="50"/>
       <RowDefinition Height="50"/>
+      <RowDefinition Height="50"/>
+      <RowDefinition Height="100"/>
+
     </Grid.RowDefinitions>
 
-      <Image Source="milhao.jpg"
-           Opacity=".6"
-           Aspect="AspectFill"
-           VerticalOptions="Start"
-           Margin="5,50,10,0"
-            Grid.Row="0"/>
-                
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
 
-    <Label Text="O QUE VOCE FAZ?!"
+    </Grid.ColumnDefinitions>
+
+
+
+
+
+
+    <Image Source="milhao.png"
+           Grid.ColumnSpan="3"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"
+           Grid.Row="0"/>
+
+    <Label Text="Quem nasceu primeiro?"
+           Grid.ColumnSpan="3"
            TextColor="Black"
-           BackgroundColor="White"
            FontSize="14"
-           Opacity="0.9"
-           HorizontalOptions="Fill"
-           HorizontalTextAlignment="Center"
-           VerticalOptions="Start"
-           HeightRequest="50"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"
            Grid.Row="1"/>
 
 
-        <Button Text="Ataca-la"
-                TextColor="white"
-                 BackgroundColor="Blue"
-                FontSize="12"
-              HeightRequest="60"
-              Margin="0,0,0,0"
-                Grid.Row="3"/>
-        </Grid>
 
 
-    
-             
+
+    <Button Text="ovo"
+            BackgroundColor="Blue"
+            FontSize="12"
+            HeightRequest="50"
+            Grid.ColumnSpan="3"
+            Grid.Row="2"/>
+    <Button Text="galinha"
+            FontSize="12"
+            BackgroundColor="Blue"
+            HeightRequest="50"
+            Grid.ColumnSpan="3"
+            Grid.Row="3"/>
+    <Button Text="pato"
+            FontSize="12"
+            BackgroundColor="Blue"
+            HeightRequest="50"
+            Grid.ColumnSpan="3"
+            Grid.Row="4"/>
+    <Button Text="ganso"
+            FontSize="12"
+            BackgroundColor="Blue"
+            HeightRequest="50"
+            Grid.ColumnSpan="3"
+            Grid.Row="5"/>
+    <Button Text="ornitorrinco"
+            FontSize="12"
+            BackgroundColor="Blue"
+            HeightRequest="50"
+            Grid.ColumnSpan="3"
+            Grid.Row="6"/>
+
+
+
+
+    <Button Text="Elimine uma questão"
+            TextColor="Black"
+            Grid.Column="0"
+            Grid.Row="7"/>
+    <Button Text="Peça a probabilidade"
+            TextColor="Black"
+            Grid.Column="1"
+            Grid.Row="7"/>
+    <Button Text="Pular"
+            TextColor="Black"
+            Grid.Column="2"
+            Grid.Row="7"/>
+
+
+  </Grid>
+
 </ContentPage>

@@ -32,7 +32,7 @@ public class Questao
     Button buttonResposta4;
 
     Button buttonResposta5;
-
+    internal int respostaCorreta;
 
     public void Desenhar()
     {
@@ -88,6 +88,10 @@ public class Questao
         buttonResposta4 = resposta4;
         buttonResposta5 = resposta5;
 
+    }
+
+    public Questao()
+    {
     }
 
     private Button QualBotaoescolhido(int respostaescolhida)
