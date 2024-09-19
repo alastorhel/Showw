@@ -2,51 +2,43 @@ namespace Showw
 {
     public partial class Questao1 : ContentPage
     {
+        Gerenciador gerenciador;
         public Questao1()
         {
             InitializeComponent();
+            gerenciador = new Gerenciador(labelPergunta, BotaoResposta1,  BotaoResposta2,  BotaoResposta3,  BotaoResposta4,  BotaoResposta5);
+            gerenciador.ProximaPergunta();
         }
 
-        // Eventos para os botões do meio
-        private void OnButton1Clicked(object sender, EventArgs e)
+        void OnButton1Clicked(object sender, EventArgs args)
         {
-            // Ação do Botão 1
+            gerenciador.VerificaCorreto(1);
         }
 
-        private void OnButton2Clicked(object sender, EventArgs e)
+       
+        void  OnButton2Clicked(object sender, EventArgs args)
         {
-            // Ação do Botão 2
+            gerenciador.VerificaCorreto(2);
         }
 
-        private void OnButton3Clicked(object sender, EventArgs e)
+       
+
+       void  OnButton3Clicked(object sender, EventArgs args)
         {
-            // Ação do Botão 3
+            gerenciador.VerificaCorreto(3);
         }
 
-        private void OnButton4Clicked(object sender, EventArgs e)
+
+       void  OnButton4Clicked(object sender, EventArgs args)
         {
-            // Ação do Botão 4
+            gerenciador.VerificaCorreto(4);
         }
 
-        private void OnButton5Clicked(object sender, EventArgs e)
+        void  OnButton5Clicked(object sender, EventArgs args)
         {
-            // Ação do Botão 5
+            gerenciador.VerificaCorreto(5);
         }
 
-        // Eventos para os botões na parte inferior
-        private void OnButton6Clicked(object sender, EventArgs e)
-        {
-            // Ação do Botão 6
-        }
-
-        private void OnButton7Clicked(object sender, EventArgs e)
-        {
-            // Ação do Botão 7
-        }
-
-        private void OnButton8Clicked(object sender, EventArgs e)
-        {
-            // Ação do Botão 8
-        }
+     
     }
 }

@@ -32,7 +32,6 @@ public class Questao
     Button buttonResposta4;
 
     Button buttonResposta5;
-    internal int respostaCorreta;
 
     public void Desenhar()
     {
@@ -48,17 +47,17 @@ public class Questao
     {
         if (respostacerta == respostaescolhida)
         {
-            var coisa = QualBotaoescolhido(respostaescolhida);
-            coisa.BackgroundColor = Colors.Green;
+            var verificar = QualBotaoescolhido(respostaescolhida);
+            verificar.BackgroundColor = Colors.Green;
             return true;
         }
         else
         {
 
-            var coisaCorreto = QualBotaoescolhido(respostacerta);
-            var coisaIncorreta = QualBotaoescolhido(respostaescolhida);
-            coisaCorreto.BackgroundColor = Colors.Yellow;
-            coisaIncorreta.BackgroundColor = Colors.Red;
+            var verificarCorreto = QualBotaoescolhido(respostacerta);
+            var verificarIncorreta = QualBotaoescolhido(respostaescolhida);
+            verificarCorreto.BackgroundColor = Colors.Yellow;
+            verificarIncorreta.BackgroundColor = Colors.Red;
             return false;
 
         }

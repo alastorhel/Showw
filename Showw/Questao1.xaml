@@ -5,98 +5,112 @@
              x:Class="Showw.Questao1">
 
 
-  <Grid  RowSpacing="5"
-         ColumnSpacing="10">
-    <Grid.RowDefinitions>
-      <RowDefinition Height="*"/>
-      <RowDefinition Height="100"/>
-      <RowDefinition Height="50"/>
-      <RowDefinition Height="50"/>
-      <RowDefinition Height="50"/>
-      <RowDefinition Height="50"/>
-      <RowDefinition Height="50"/>
-      <RowDefinition Height="100"/>
+        <Grid  RowSpacing="5"
+               ColumnSpacing="10">
+                <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="100"/>
 
-    </Grid.RowDefinitions>
+                </Grid.RowDefinitions>
 
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="*"/>
-      <ColumnDefinition Width="*"/>
-      <ColumnDefinition Width="*"/>
+                <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
 
-    </Grid.ColumnDefinitions>
-
-
-
-
-
-
-    <Image Source="milhao.png"
-           Grid.ColumnSpan="3"
-           HorizontalOptions="Center"
-           VerticalOptions="Center"
-           Grid.Row="0"/>
-
-    <Label Text="Quem nasceu primeiro?"
-           Grid.ColumnSpan="3"
-           TextColor="Black"
-           FontSize="14"
-           HorizontalOptions="Center"
-           VerticalOptions="Center"
-           Grid.Row="1"/>
+                </Grid.ColumnDefinitions>
 
 
 
 
 
-    <Button Text="ovo"
-            BackgroundColor="Blue"
-            FontSize="12"
-            HeightRequest="50"
-            Grid.ColumnSpan="3"
-            Grid.Row="2"/>
-    <Button Text="galinha"
-            FontSize="12"
-            BackgroundColor="Blue"
-            HeightRequest="50"
-            Grid.ColumnSpan="3"
-            Grid.Row="3"/>
-    <Button Text="pato"
-            FontSize="12"
-            BackgroundColor="Blue"
-            HeightRequest="50"
-            Grid.ColumnSpan="3"
-            Grid.Row="4"/>
-    <Button Text="ganso"
-            FontSize="12"
-            BackgroundColor="Blue"
-            HeightRequest="50"
-            Grid.ColumnSpan="3"
-            Grid.Row="5"/>
-    <Button Text="ornitorrinco"
-            FontSize="12"
-            BackgroundColor="Blue"
-            HeightRequest="50"
-            Grid.ColumnSpan="3"
-            Grid.Row="6"/>
+
+                <Image Source="milhao.png"
+                       Grid.ColumnSpan="3"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Grid.Row="0"/>
+
+                <Label x:Name="labelPergunta"
+                       Text="Quem nasceu primeiro?"
+                       Grid.ColumnSpan="3"
+                       TextColor="Black"
+                       FontSize="14"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Grid.Row="1"/>
 
 
 
 
-    <Button Text="Elimine uma questão"
-            TextColor="Black"
-            Grid.Column="0"
-            Grid.Row="7"/>
-    <Button Text="Peça a probabilidade"
-            TextColor="Black"
-            Grid.Column="1"
-            Grid.Row="7"/>
-    <Button Text="Pular"
-            TextColor="Black"
-            Grid.Column="2"
-            Grid.Row="7"/>
+
+                <Button Text="ovo"
+                        x:Name="BotaoResposta1"
+                        BackgroundColor="Blue"
+                        FontSize="12"
+                        HeightRequest="50"
+                        Clicked="OnButton1Clicked"
+                        Grid.ColumnSpan="3"
+                        Grid.Row="2"/>
+                <Button Text="galinha"
+                        x:Name="BotaoResposta2"
+                        FontSize="12"
+                        BackgroundColor="Blue"
+                        Clicked="OnButton2Clicked"
+                        HeightRequest="50"
+                        Grid.ColumnSpan="3"
+                        Grid.Row="3"/>
+                <Button Text="pato"
+                        FontSize="12"
+                        x:Name="BotaoResposta3"
+                        BackgroundColor="Blue"
+                        HeightRequest="50"
+                        Clicked="OnButton3Clicked"
+                        Grid.ColumnSpan="3"
+                        Grid.Row="4"/>
+                <Button Text="ganso"
+                        FontSize="12"
+                        x:Name="BotaoResposta4"
+                        BackgroundColor="Blue"
+                        Clicked="OnButton4Clicked"
+                        HeightRequest="50"
+                        Grid.ColumnSpan="3"
+                        Grid.Row="5"/>
+                <Button Text="ornitorrinco"
+                        FontSize="12"
+                        BackgroundColor="Blue"
+                        x:Name="BotaoResposta5"
+                        Clicked="OnButton5Clicked"
+                        HeightRequest="50"
+                        Grid.ColumnSpan="3"
+                        Grid.Row="6"/>
 
 
-  </Grid>
+
+
+                <Button Text="Elimine uma questão"
+                        TextColor="Black"
+                        x:Name="BotaoResposta6"
+                        Grid.Column="0"
+                        Grid.Row="7"/>
+                <Button Text="Peça a probabilidade"
+                        x:Name="BotaoResposta7"
+                        TextColor="Black"
+                        Grid.Column="1"
+                        Grid.Row="7"/>
+                <Button Text="Pular"
+                        TextColor="Black"
+                        x:Name="BotaoResposta8"
+                        Grid.Column="2"
+                        Grid.Row="7"/>
+
+
+        </Grid>
 
 </ContentPage>
