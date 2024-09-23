@@ -19,7 +19,7 @@ public class Questao
 
     public int respostacerta;
 
-    public int nivel;
+    public int Nivel;
 
     Label labelpergunta;
 
