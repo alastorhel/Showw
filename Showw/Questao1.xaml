@@ -9,13 +9,15 @@
                ColumnSpacing="10">
                 <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
-                        <RowDefinition Height="100"/>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="50"/>
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="100"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                         <RowDefinition Height="50"/>
+                        <RowDefinition Height="100"/>
+
 
                 </Grid.RowDefinitions>
 
@@ -37,6 +39,28 @@
                        VerticalOptions="Center"
                        Grid.Row="0"/>
 
+
+                <Label x:Name="labelPontuacao"
+                       Text="Pontuação:"
+                       TextColor="Black"
+                       FontSize="14"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Grid.ColumnSpan="1"
+                       Grid.Row="1"/>
+
+                       <Label x:Name="labelNivel"
+                       Text="Nivel:"
+                       TextColor="Black"
+                       FontSize="14"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Grid.ColumnSpan="3"
+                       Grid.Row="1"/>
+
+
+
+
                 <Label x:Name="labelPergunta"
                        Text="Quem nasceu primeiro?"
                        Grid.ColumnSpan="3"
@@ -44,7 +68,7 @@
                        FontSize="14"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
-                       Grid.Row="1"/>
+                       Grid.Row="2"/>
 
 
 
@@ -57,7 +81,7 @@
                         HeightRequest="50"
                         Clicked="OnButton1Clicked"
                         Grid.ColumnSpan="3"
-                        Grid.Row="2"/>
+                        Grid.Row="3"/>
                 <Button Text="galinha"
                         x:Name="BotaoResposta2"
                         FontSize="12"
@@ -65,7 +89,7 @@
                         Clicked="OnButton2Clicked"
                         HeightRequest="50"
                         Grid.ColumnSpan="3"
-                        Grid.Row="3"/>
+                        Grid.Row="4"/>
                 <Button Text="pato"
                         FontSize="12"
                         x:Name="BotaoResposta3"
@@ -73,7 +97,7 @@
                         HeightRequest="50"
                         Clicked="OnButton3Clicked"
                         Grid.ColumnSpan="3"
-                        Grid.Row="4"/>
+                        Grid.Row="5"/>
                 <Button Text="ganso"
                         FontSize="12"
                         x:Name="BotaoResposta4"
@@ -81,7 +105,7 @@
                         Clicked="OnButton4Clicked"
                         HeightRequest="50"
                         Grid.ColumnSpan="3"
-                        Grid.Row="5"/>
+                        Grid.Row="6"/>
                 <Button Text="ornitorrinco"
                         FontSize="12"
                         BackgroundColor="Blue"
@@ -89,7 +113,7 @@
                         Clicked="OnButton5Clicked"
                         HeightRequest="50"
                         Grid.ColumnSpan="3"
-                        Grid.Row="6"/>
+                        Grid.Row="7"/>
 
 
 
@@ -98,17 +122,17 @@
                         TextColor="Black"
                         x:Name="BotaoResposta6"
                         Grid.Column="0"
-                        Grid.Row="7"/>
+                        Grid.Row="8"/>
                 <Button Text="Peça a probabilidade"
                         x:Name="BotaoResposta7"
                         TextColor="Black"
                         Grid.Column="1"
-                        Grid.Row="7"/>
+                        Grid.Row="8"/>
                 <Button Text="Pular"
                         TextColor="Black"
                         x:Name="BotaoResposta8"
                         Grid.Column="2"
-                        Grid.Row="7"/>
+                        Grid.Row="8"/>
 
 
         </Grid>

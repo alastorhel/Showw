@@ -10,10 +10,16 @@ public class Gerenciador
     List<Questao> ListaQuestoes = new List<Questao>();
     List<int> ListaQuestoesRespondidas = new List<int>();
     Questao questaoCorrente;
+     
+     Label labelPontuacao;
+     Label labelNivel;
 
-    public Gerenciador(Label labelPergunta, Button BotaoResposta1, Button BotaoResposta2, Button BotaoResposta3, Button BotaoResposta4, Button BotaoResposta5)
+
+    public Gerenciador(Label labelPergunta, Button BotaoResposta1, Button BotaoResposta2, Button BotaoResposta3, Button BotaoResposta4, Button BotaoResposta5, Label labelPontuacao, Label labelNivel)
     {
         CriarQuestoes(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+        this.labelPontuacao = labelPontuacao;
+        this.labelNivel = labelNivel;
     }
 
 
@@ -28,11 +34,14 @@ public class Gerenciador
     }
     public async void VerificaCorreto(int resposta)
     {
-
+            
+              
 
         if (questaoCorrente!.VerificarResposta(resposta))
         {
             await Task.Delay(1500);
+             labelPontuacao.Text = "Pontuação:R$" + Pontuacao.ToString();
+            labelNivel.Text = "Nivel" + NivelAtual.ToString();
             AdicionaPontucao(NivelAtual);
             NivelAtual++;
             ProximaPergunta();
@@ -77,13 +86,15 @@ public class Gerenciador
         Pontuacao = 0;
         NivelAtual = 0;
         ProximaPergunta();
+        labelPontuacao.Text = "Pontuação:R$" + Pontuacao.ToString();
+            labelNivel.Text = "Nivel" + NivelAtual.ToString();
     }
 
 
     void CriarQuestoes(Label labelPergunta, Button BotaoResposta1, Button BotaoResposta2, Button BotaoResposta3, Button BotaoResposta4, Button BotaoResposta5)
     {
         var Q1 = new Questao();
-        Q1.Nivel= 1;
+        Q1.Nivel = 1;
         Q1.pergunta = "Qual elemento que se diz saber tudo é perder tudo";
         Q1.resposta1 = "morte";
         Q1.resposta2 = "energia";
@@ -96,7 +107,7 @@ public class Gerenciador
         ListaQuestoes.Add(Q1);
 
         var Q2 = new Questao();
-         Q2.Nivel= 1;
+        Q2.Nivel = 1;
         Q2.pergunta = "Quem foi o primeiro a morrer em OSF?";
         Q2.resposta1 = "Liz";
         Q2.resposta2 = "Joui";
@@ -109,7 +120,7 @@ public class Gerenciador
         ListaQuestoes.Add(Q2);
 
         var Q4 = new Questao();
-         Q4.Nivel= 1;
+        Q4.Nivel = 1;
         Q4.pergunta = "Qual é o nome do boss final de OSF";
         Q4.resposta1 = "Magistrada";
         Q4.resposta2 = "Diabo";
@@ -122,7 +133,7 @@ public class Gerenciador
         ListaQuestoes.Add(Q4);
 
         var Q5 = new Questao();
-         Q5.Nivel= 1;
+        Q5.Nivel = 1;
         Q5.pergunta = "Quem mais deu dano no César?";
         Q5.resposta1 = "Porta";
         Q5.resposta2 = "Deus da morte";
@@ -135,7 +146,7 @@ public class Gerenciador
         ListaQuestoes.Add(Q5);
 
         var Q6 = new Questao();
-         Q6.Nivel= 1;
+        Q6.Nivel = 1;
         Q6.pergunta = "Qual elemento do Arthur?";
         Q6.resposta1 = "Morte";
         Q6.resposta2 = "Sangue";
@@ -148,7 +159,7 @@ public class Gerenciador
         ListaQuestoes.Add(Q6);
 
         var Q7 = new Questao();
-         Q7.Nivel= 1;
+        Q7.Nivel = 1;
         Q7.pergunta = "Qual elemento do Kaiser";
         Q7.resposta1 = "Morte";
         Q7.resposta2 = "Sangue";
@@ -161,7 +172,7 @@ public class Gerenciador
         ListaQuestoes.Add(Q7);
 
         var Q8 = new Questao();
-         Q8.Nivel= 1;
+        Q8.Nivel = 1;
         Q8.pergunta = "Qual elemento do Dante";
         Q8.resposta1 = "Sangue";
         Q8.resposta2 = "conhecimento";
@@ -175,7 +186,7 @@ public class Gerenciador
 
 
         var Q9 = new Questao();
-         Q9.Nivel= 1;
+        Q9.Nivel = 1;
         Q9.pergunta = "Quem portava a reliquia de conhecimento?";
         Q9.resposta1 = "Deus da Morte";
         Q9.resposta2 = "Magistrada";
@@ -188,7 +199,7 @@ public class Gerenciador
         ListaQuestoes.Add(Q9);
 
         var Q10 = new Questao();
-         Q10.Nivel= 1;
+        Q10.Nivel = 1;
         Q10.pergunta = "O que a Carina tirou do Kian?";
         Q10.resposta1 = "Sua forca";
         Q10.resposta2 = "Seus rituais";
@@ -202,7 +213,7 @@ public class Gerenciador
 
 
         var Q11 = new Questao();
-         Q11.Nivel= 1;
+        Q11.Nivel = 1;
         Q11.pergunta = "Quem portava a reliquia de conhecimento?";
         Q11.resposta1 = "Deus da Morte";
         Q11.resposta2 = "Kian";
@@ -217,7 +228,7 @@ public class Gerenciador
 
 
         var Q12 = new Questao();
-         Q12.Nivel= 2;
+        Q12.Nivel = 2;
         Q12.pergunta = "Que equipe matou a fámilia Leone?";
         Q12.resposta1 = "Equipe E";
         Q12.resposta2 = "Equipe Kelvin";
@@ -232,7 +243,7 @@ public class Gerenciador
 
 
         var Q13 = new Questao();
-        Q13.Nivel= 2;
+        Q13.Nivel = 2;
         Q13.pergunta = "Em que arma o Anfitriao esta preso?";
         Q13.resposta1 = "Faca";
         Q13.resposta2 = "Foice";
@@ -243,9 +254,9 @@ public class Gerenciador
         Q13.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
         ListaQuestoes.Add(Q13);
-        
+
         var Q14 = new Questao();
-        Q14.Nivel= 2;
+        Q14.Nivel = 2;
         Q14.pergunta = "Qual elemento era o elemento de Kian?";
         Q14.resposta1 = "conhecimento";
         Q14.resposta2 = "energia";
@@ -258,7 +269,7 @@ public class Gerenciador
         ListaQuestoes.Add(Q14);
 
         var Q15 = new Questao();
-        Q15.Nivel= 2;
+        Q15.Nivel = 2;
         Q15.pergunta = "Quem foi saco de pancada do Kian?";
         Q15.resposta1 = "Liz";
         Q15.resposta2 = "Joui";
@@ -271,7 +282,7 @@ public class Gerenciador
         ListaQuestoes.Add(Q15);
 
         var Q16 = new Questao();
-        Q16.Nivel= 2;
+        Q16.Nivel = 2;
         Q16.pergunta = "Qual elemento suplanta a reliquia de energia";
         Q16.resposta1 = "conhecimento";
         Q16.resposta2 = "energia";
@@ -284,7 +295,7 @@ public class Gerenciador
         ListaQuestoes.Add(Q16);
 
         var Q17 = new Questao();
-        Q17.Nivel= 2;
+        Q17.Nivel = 2;
         Q17.pergunta = "Quem matou a Liz?";
         Q17.resposta1 = "Kian";
         Q17.resposta2 = "Deus da morte";
@@ -297,7 +308,7 @@ public class Gerenciador
         ListaQuestoes.Add(Q17);
 
         var Q18 = new Questao();
-        Q18.Nivel= 2;
+        Q18.Nivel = 2;
         Q18.pergunta = "De qual elemento a Agatha é?";
         Q18.resposta1 = "Morte";
         Q18.resposta2 = "Sangue";
@@ -310,7 +321,7 @@ public class Gerenciador
         ListaQuestoes.Add(Q18);
 
         var Q19 = new Questao();
-        Q19.Nivel= 2;
+        Q19.Nivel = 2;
         Q19.pergunta = "Que membro o Arthur perdeu em Santo Berço?";
         Q19.resposta1 = "olho";
         Q19.resposta2 = "lingua";
@@ -323,7 +334,7 @@ public class Gerenciador
         ListaQuestoes.Add(Q19);
 
         var Q20 = new Questao();
-        Q20.Nivel= 2;
+        Q20.Nivel = 2;
         Q20.pergunta = "Quem era Kian em desconjuração?";
         Q20.resposta1 = "Fernando";
         Q20.resposta2 = "Luciano";
@@ -337,7 +348,7 @@ public class Gerenciador
 
 
         var Q21 = new Questao();
-        Q21.Nivel= 2;
+        Q21.Nivel = 2;
         Q21.pergunta = "Quem foi o primeiro a morrer(player) em Desconjuração?";
         Q21.resposta1 = "Erin";
         Q21.resposta2 = "Beatrice";
@@ -350,7 +361,7 @@ public class Gerenciador
         ListaQuestoes.Add(Q21);
 
         var Q22 = new Questao();
-        Q22.Nivel= 3;
+        Q22.Nivel = 3;
         Q22.pergunta = "Quem foi o primeiro a morrer do time Kian?";
         Q22.resposta1 = "Gal";
         Q22.resposta2 = "T-Bag";
@@ -364,7 +375,7 @@ public class Gerenciador
 
 
         var Q23 = new Questao();
-        Q23.Nivel= 3;
+        Q23.Nivel = 3;
         Q23.pergunta = "Quem foi o último a portar da relíquia de energia?";
         Q23.resposta1 = "Thiago";
         Q23.resposta2 = "Kian";
@@ -379,7 +390,7 @@ public class Gerenciador
 
 
         var Q24 = new Questao();
-        Q24.Nivel= 3;
+        Q24.Nivel = 3;
         Q24.pergunta = "Quem fez um contrato com o Diabo?";
         Q24.resposta1 = "Joui";
         Q24.resposta2 = "Kian";
@@ -394,7 +405,7 @@ public class Gerenciador
 
 
         var Q25 = new Questao();
-        Q25.Nivel= 3;
+        Q25.Nivel = 3;
         Q25.pergunta = "Quem porta a Reliquia de sangue?";
         Q25.resposta1 = "Henri";
         Q25.resposta2 = "Joui";
@@ -408,7 +419,7 @@ public class Gerenciador
 
 
         var Q26 = new Questao();
-        Q26.Nivel= 3;
+        Q26.Nivel = 3;
         Q26.pergunta = "Quem foi o primerio personagem a enlouquecer?";
         Q26.resposta1 = "Arthur";
         Q26.resposta2 = "Joui";
@@ -422,7 +433,7 @@ public class Gerenciador
 
 
         var Q27 = new Questao();
-        Q27.Nivel= 3;
+        Q27.Nivel = 3;
         Q27.pergunta = "Qual o único personagem do Time Kian 'sobreviveu'?";
         Q27.resposta1 = "Rufus";
         Q27.resposta2 = "Damir";
@@ -436,7 +447,7 @@ public class Gerenciador
 
 
         var Q28 = new Questao();
-        Q28.Nivel= 3;
+        Q28.Nivel = 3;
         Q28.pergunta = "Qual personagem morreu em Sdol?";
         Q28.resposta1 = "Chico";
         Q28.resposta2 = "Lírio";
@@ -450,7 +461,7 @@ public class Gerenciador
 
 
         var Q29 = new Questao();
-        Q29.Nivel= 3;
+        Q29.Nivel = 3;
         Q29.pergunta = "Qual o nome da filha do Verissimo?";
         Q29.resposta1 = "Joui";
         Q29.resposta2 = "Mia";
@@ -464,7 +475,7 @@ public class Gerenciador
 
 
         var Q30 = new Questao();
-        Q30.Nivel= 3;
+        Q30.Nivel = 3;
         Q30.pergunta = "Quem foi para Tenebris na Temporada de Sdol?";
         Q30.resposta1 = "Guizo";
         Q30.resposta2 = "Dara";
@@ -477,7 +488,7 @@ public class Gerenciador
         ListaQuestoes.Add(Q30);
 
         var Q31 = new Questao();
-        Q31.Nivel= 3;
+        Q31.Nivel = 3;
         Q31.pergunta = "Qual classe o Xande é?";
         Q31.resposta1 = "Combatente";
         Q31.resposta2 = "Especialista";
@@ -491,7 +502,7 @@ public class Gerenciador
 
 
         var Q32 = new Questao();
-
+        Q32.Nivel = 4;
         Q32.pergunta = "Qual classe o Chico é?";
         Q32.resposta1 = "Combatente";
         Q32.resposta2 = "Especialista";
@@ -505,7 +516,7 @@ public class Gerenciador
 
 
         var Q33 = new Questao();
-
+        Q33.Nivel = 4;
         Q33.pergunta = "Qual classe o Lírio é?";
         Q33.resposta1 = "Combatente";
         Q33.resposta2 = "Especialista";
@@ -519,7 +530,7 @@ public class Gerenciador
 
 
         var Q34 = new Questao();
-
+        Q34.Nivel = 4;
         Q34.pergunta = "Qual classe o Guizo é?";
         Q34.resposta1 = "Combatente";
         Q34.resposta2 = "Especialista";
@@ -533,7 +544,7 @@ public class Gerenciador
 
 
         var Q35 = new Questao();
-
+        Q35.Nivel = 4;
         Q35.pergunta = "Qual classe a Dara é?";
         Q35.resposta1 = "Combatente";
         Q35.resposta2 = "Especialista";
@@ -547,7 +558,7 @@ public class Gerenciador
 
 
         var Q36 = new Questao();
-
+        Q36.Nivel = 4;
         Q36.pergunta = "Qual elemento a Amélie segue?";
         Q36.resposta1 = "sangue";
         Q36.resposta2 = "morte";
@@ -562,7 +573,7 @@ public class Gerenciador
 
 
         var Q37 = new Questao();
-
+        Q37.Nivel = 4;
         Q37.pergunta = "Qual elemento o Milo/Miguel segue?";
         Q37.resposta1 = "sangue";
         Q37.resposta2 = "morte";
@@ -576,7 +587,7 @@ public class Gerenciador
 
 
         var Q38 = new Questao();
-
+        Q38.Nivel = 4;
         Q38.pergunta = "Qual foi o Boss Final de Osni?";
         Q38.resposta1 = "Diabo";
         Q38.resposta2 = "Deus da Morte";
@@ -591,7 +602,7 @@ public class Gerenciador
 
 
         var Q39 = new Questao();
-
+        Q39.Nivel = 4;
         Q39.pergunta = "Em OSNI quem teve a primeira experiencia com um quadro?";
         Q39.resposta1 = "Barbara";
         Q39.resposta2 = "Milo";
@@ -605,7 +616,7 @@ public class Gerenciador
 
 
         var Q40 = new Questao();
-
+        Q40.Nivel = 4;
         Q40.pergunta = "Qual player foi o primeiro player a morrer em OSNI?";
         Q40.resposta1 = "Barbara";
         Q40.resposta2 = "Milo";
@@ -619,7 +630,7 @@ public class Gerenciador
 
 
         var Q41 = new Questao();
-
+        Q41.Nivel = 4;
         Q41.pergunta = "Quem saiu vivo de OSNI?";
         Q41.resposta1 = "Barbara e Milo";
         Q41.resposta2 = "Amelie e Olivier";
@@ -633,7 +644,7 @@ public class Gerenciador
 
 
         var Q42 = new Questao();
-
+        Q42.Nivel = 5;
         Q42.pergunta = "Quem era o traidor de OSNI?";
         Q42.resposta1 = "Barnabé";
         Q42.resposta2 = "Evandro";
@@ -647,7 +658,7 @@ public class Gerenciador
 
 
         var Q43 = new Questao();
-
+        Q43.Nivel = 5;
         Q43.pergunta = "Qual era o nome do Gatinho de OSNI?";
         Q43.resposta1 = "File";
         Q43.resposta2 = "Bisteca";
@@ -662,7 +673,7 @@ public class Gerenciador
 
 
         var Q44 = new Questao();
-
+        Q44.Nivel = 5;
         Q44.pergunta = "OSNI se passa em que lugar?";
         Q44.resposta1 = "Trem";
         Q44.resposta2 = "Barco";
@@ -676,12 +687,12 @@ public class Gerenciador
 
 
         var Q45 = new Questao();
-
+        Q45.Nivel = 5;
         Q45.pergunta = "Qual o nome da Ilha onde ocorreu OSNI?";
         Q45.resposta1 = "Maldivas";
         Q45.resposta2 = "Hanbel";
         Q45.resposta3 = "Caribe";
-        Q45.resposta4 = "Carpasinha";
+        Q45.resposta4 = "Típora";
         Q45.resposta5 = "Coquinhas";
         Q45.respostacerta = 4;
         Q45.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
@@ -689,7 +700,7 @@ public class Gerenciador
         ListaQuestoes.Add(Q45);
 
         var Q46 = new Questao();
-
+        Q46.Nivel = 5;
         Q46.pergunta = "Qual classe a Barbara era?";
         Q46.resposta1 = "Combatente";
         Q46.resposta2 = "Especialista";
@@ -702,7 +713,7 @@ public class Gerenciador
         ListaQuestoes.Add(Q46);
 
         var Q47 = new Questao();
-
+        Q47.Nivel = 5;
         Q47.pergunta = "Quem fez uma aparição especial no final de OSNI?";
         Q47.resposta1 = "Henri";
         Q47.resposta2 = "Joui";
@@ -715,7 +726,7 @@ public class Gerenciador
         ListaQuestoes.Add(Q47);
 
         var Q48 = new Questao();
-
+        Q48.Nivel = 5;
         Q48.pergunta = "Em que ano se passa SDOL?";
         Q48.resposta1 = "2022";
         Q48.resposta2 = "2015";
@@ -728,7 +739,7 @@ public class Gerenciador
         ListaQuestoes.Add(Q48);
 
         var Q49 = new Questao();
-
+        Q49.Nivel = 5;
         Q49.pergunta = "Qual era os principais elementos de SDOL?";
         Q49.resposta1 = "Morte e Sangue";
         Q49.resposta2 = "Energia e Sangue";
@@ -741,7 +752,7 @@ public class Gerenciador
         ListaQuestoes.Add(Q49);
 
         var Q50 = new Questao();
-
+        Q50.Nivel = 5;
         Q50.pergunta = "Qual era os principais elementos de OSNI?";
         Q50.resposta1 = "Morte e Sangue";
         Q50.resposta2 = "Energia e Sangue";

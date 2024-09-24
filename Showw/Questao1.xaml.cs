@@ -6,7 +6,7 @@ namespace Showw
         public Questao1()
         {
             InitializeComponent();
-            gerenciador = new Gerenciador(labelPergunta, BotaoResposta1,  BotaoResposta2,  BotaoResposta3,  BotaoResposta4,  BotaoResposta5);
+            gerenciador = new Gerenciador(labelPergunta, BotaoResposta1,  BotaoResposta2,  BotaoResposta3,  BotaoResposta4,  BotaoResposta5, labelPontuacao, labelNivel);
             gerenciador.ProximaPergunta();
         }
 
