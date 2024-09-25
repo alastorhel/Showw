@@ -1,9 +1,9 @@
 namespace Showw
 {
-    public partial class Questao1 : ContentPage
+    public partial class QuestaoPage : ContentPage
     {
         Gerenciador gerenciador;
-        public Questao1()
+        public QuestaoPage()
         {
             InitializeComponent();
             gerenciador = new Gerenciador(labelPergunta, BotaoResposta1,  BotaoResposta2,  BotaoResposta3,  BotaoResposta4,  BotaoResposta5, labelPontuacao, labelNivel);

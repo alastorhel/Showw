@@ -22,7 +22,7 @@ public class Gerenciador
         this.labelNivel = labelNivel;
     }
 
-
+       
     public void ProximaPergunta()
     {
         var numRandomico = Random.Shared.Next(0, ListaQuestoes.Count - 1);
@@ -45,6 +45,11 @@ public class Gerenciador
             AdicionaPontucao(NivelAtual);
             NivelAtual++;
             ProximaPergunta();
+            if (NivelAtual == 10)
+            {
+                  Application.Current.MainPage = new MainPage();
+            }
+            
         }
         else
         {
@@ -765,9 +770,339 @@ public class Gerenciador
         ListaQuestoes.Add(Q50);
 
 
+        var Q51 = new Questao();
+        Q51.Nivel = 5;
+        Q51.pergunta = "Quantas temporadas tem Ordem Paranormal?";
+        Q51.resposta1 = "3";
+        Q51.resposta2 = "4";
+        Q51.resposta3 = "5";
+        Q51.resposta4 = "2";
+        Q51.resposta5 = "7";
+        Q51.respostacerta = 5;
+        Q51.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaQuestoes.Add(Q51);
+
+        var Q52 = new Questao();
+        Q52.Nivel = 6;
+        Q52.pergunta = "Quem era a Degolificada?";
+        Q52.resposta1 = "Agatha";
+        Q52.resposta2 = "Gabriel";
+        Q52.resposta3 = "Liz";
+        Q52.resposta4 = "Daniel";
+        Q52.resposta5 = "Alex";
+        Q52.respostacerta = 1;
+        Q52.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaQuestoes.Add(Q52);
+
+        var Q53 = new Questao();
+        Q53.Nivel = 6;
+        Q53.pergunta = "Qual era o nome do Orfanato de Ordem";
+        Q53.resposta1 = "SantaMegaFreira";
+        Q53.resposta2 = "SantoBerço";
+        Q53.resposta3 = "SantaMeneFreda";
+        Q53.resposta4 = "Universal";
+        Q53.resposta5 = "Adventista";
+        Q53.respostacerta = 3;
+        Q53.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaQuestoes.Add(Q53);
+
+        var Q54 = new Questao();
+        Q54.Nivel = 6;
+        Q54.pergunta = "Qual monstro era o Padre do Orfanato?";
+        Q54.resposta1 = "Enpap";
+        Q54.resposta2 = "Mulher Afogada";
+        Q54.resposta3 = "Sukal";
+        Q54.resposta4 = "Zumbi de Sangue";
+        Q54.resposta5 = "Telopsia";
+        Q54.respostacerta = 1;
+        Q54.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaQuestoes.Add(Q54);
+
+        var Q55 = new Questao();
+        Q55.Nivel = 6;
+        Q55.pergunta = "Qual monstro era a Freira do Orfanato";
+        Q55.resposta1 = "Enpap";
+        Q55.resposta2 = "Mulher Afogada";
+        Q55.resposta3 = "Sukal";
+        Q55.resposta4 = "Zumbi de Sangue";
+        Q55.resposta5 = "Telopsia";
+        Q55.respostacerta = 3;
+        Q55.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaQuestoes.Add(Q55);
+
+        var Q56 = new Questao();
+        Q56.Nivel = 6;
+        Q56.pergunta = "Qual o nome da criança que foi amarrada a Leonardo Gomes?";
+        Q56.resposta1 = "Eduarda";
+        Q56.resposta2 = "Hugo";
+        Q56.resposta3 = "Fernando";
+        Q56.resposta4 = "Tim";
+        Q56.resposta5 = "Rogerio";
+        Q56.respostacerta = 4;
+        Q56.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaQuestoes.Add(Q56);
+
+        var Q57 = new Questao();
+        Q57.Nivel = 6;
+        Q57.pergunta = "Qual era nome da amada de Dante";
+        Q57.resposta1 = "Beatrice";
+        Q57.resposta2 = "Liz";
+        Q57.resposta3 = "Erin";
+        Q57.resposta4 = "Artemis";
+        Q57.resposta5 = "Jasmin";
+        Q57.respostacerta = 5;
+        Q57.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaQuestoes.Add(Q57);
 
 
+        var Q58 = new Questao();
+        Q58.Nivel = 6;
+        Q58.pergunta = "Quem foi o Boss Final de Calamidade";
+        Q58.resposta1 = "Deus da Morte";
+        Q58.resposta2 = "Magistrada";
+        Q58.resposta3 = "Kian";
+        Q58.resposta4 = "Anfitriao";
+        Q58.resposta5 = "Diabo";
+        Q58.respostacerta = 3;
+        Q58.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaQuestoes.Add(Q58);
+
+        var Q59 = new Questao();
+        Q59.Nivel = 6;
+        Q59.pergunta = "Qual elemento suplanta o elemento de Morte?";
+        Q59.resposta1 = "Sangue";
+        Q59.resposta2 = "Energia";
+        Q59.resposta3 = "Medo";
+        Q59.resposta4 = "conhecimento";
+        Q59.resposta5 = "Morte";
+        Q59.respostacerta = 2;
+        Q59.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaQuestoes.Add(Q59);
+
+
+        var Q60 = new Questao();
+        Q60.Nivel = 6;
+        Q60.pergunta = "Quem tirou um braço de Gal?";
+        Q60.resposta1 = "Arthur";
+        Q60.resposta2 = "Kian";
+        Q60.resposta3 = "Dante";
+        Q60.resposta4 = "Carina";
+        Q60.resposta5 = "Joui";
+        Q60.respostacerta = 5;
+        Q60.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaQuestoes.Add(Q60);
+
+
+
+        var Q61 = new Questao();
+        Q61.Nivel = 6;
+        Q61.pergunta = "Qual o nome do amigo do Rubens?";
+        Q61.resposta1 = "Joui ";
+        Q61.resposta2 = "Jhonny Tabasco";
+        Q61.resposta3 = "Arnaldo Frits";
+        Q61.resposta4 = "Verissimo";
+        Q61.resposta5 = "Balu";
+        Q61.respostacerta = 2;
+        Q61.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaQuestoes.Add(Q61);
+
+
+
+        var Q62 = new Questao();
+        Q62.Nivel = 7;
+        Q62.pergunta = "Qual nome do filho(a) de Arnaldo ?";
+        Q62.resposta1 = "Beatrice ";
+        Q62.resposta2 = "Liz Hebber";
+        Q62.resposta3 = "Joui Jouki";
+        Q62.resposta4 = "Arthur Cevero";
+        Q62.resposta5 = "Thiago Frits";
+        Q62.respostacerta = 5;
+        Q62.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaQuestoes.Add(Q62);
+
+        var Q63 = new Questao();
+        Q63.Nivel = 7;
+        Q63.pergunta = "O que tinha no bolso de Arnaldo quando adiquiriu a reliquia de Energia?";
+        Q63.resposta1 = "Uma Pulseira";
+        Q63.resposta2 = "Um Relógio";
+        Q63.resposta3 = "Uma carta";
+        Q63.resposta4 = "Uma Faca";
+        Q63.resposta5 = "Um Sigilo";
+        Q63.respostacerta = 2;
+        Q63.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaQuestoes.Add(Q63);
+
+        var Q64 = new Questao();
+        Q64.Nivel = 7;
+        Q64.pergunta = "Onde se passa a Temporada de Calamidade";
+        Q64.resposta1 = "Itália";
+        Q64.resposta2 = "Brasil";
+        Q64.resposta3 = "Alemanha";
+        Q64.resposta4 = "Japão";
+        Q64.resposta5 = "França";
+        Q64.respostacerta = 1;
+        Q64.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaQuestoes.Add(Q64);
+
+        var Q65 = new Questao();
+        Q65.Nivel = 7;
+        Q65.pergunta = "Qual o nome da  Família da Carina";
+        Q65.resposta1 = "Os Arghents";
+        Q65.resposta2 = "Os Wolfs";
+        Q65.resposta3 = "Os Carvalhos";
+        Q65.resposta4 = "Os Leones";
+        Q65.resposta5 = "Os Truines";
+        Q65.respostacerta = 4;
+        Q65.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaQuestoes.Add(Q65);
+
+        var Q66 = new Questao();
+        Q66.Nivel = 7;
+        Q66.pergunta = "Qual era o nome do 'filho(a)' de Gal?";
+        Q66.resposta1 = "Arthur ";
+        Q66.resposta2 = "Clarissa";
+        Q66.resposta3 = "Dagan";
+        Q66.resposta4 = "Carina";
+        Q66.resposta5 = "Damir";
+        Q66.respostacerta = 3;
+        Q66.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaQuestoes.Add(Q66);
+
+        var Q67 = new Questao();
+        Q67.Nivel = 7;
+        Q67.pergunta = "Quem traiu a Ordem e Calamidade?";
+        Q67.resposta1 = "Fernando";
+        Q67.resposta2 = "Clarissa";
+        Q67.resposta3 = "Dante";
+        Q67.resposta4 = "Luciano";
+        Q67.resposta5 = "Carina";
+        Q67.respostacerta = 2;
+        Q67.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaQuestoes.Add(Q67);
+
+        var Q68 = new Questao();
+        Q68.Nivel = 7;
+        Q68.pergunta = "Qual foi o primeiro boss de Calamidade?";
+        Q68.resposta1 = "Amigo Imaginario";
+        Q68.resposta2 = "Enpap";
+        Q68.resposta3 = "Carente";
+        Q68.resposta4 = "Sukal";
+        Q68.resposta5 = "Zumbi de Sangue";
+        Q68.respostacerta = 3;
+        Q68.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaQuestoes.Add(Q68);
+
+        var Q69 = new Questao();
+        Q69.Nivel = 7;
+        Q69.pergunta = "Quem foi o primeiro player a morrer em Quarentena?";
+        Q69.resposta1 = "Diego Thalles";
+        Q69.resposta2 = "Jeffrey Bacon";
+        Q69.resposta3 = "Luis M.";
+        Q69.resposta4 = "Dr.Benito Camelo";
+        Q69.resposta5 = "Lucie Pocharde";
+        Q69.respostacerta = 5;
+        Q69.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaQuestoes.Add(Q69);
+
+        var Q70 = new Questao();
+        Q70.Nivel = 7;
+        Q70.pergunta = "Que monstro matou a Lucie?";
+        Q70.resposta1 = "Infecticidio";
+        Q70.resposta2 = "Nidere";
+        Q70.resposta3 = "Ceifador Espiral";
+        Q70.resposta4 = "Sukal";
+        Q70.resposta5 = "Zumbi de Sangue";
+        Q70.respostacerta = 2;
+        Q70.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaQuestoes.Add(Q70);
+
+        var Q71 = new Questao();
+        Q71.Nivel = 7;
+        Q71.pergunta = "Qual o monstro que estava preso nas intalações do laboratoria na Antartica?";
+        Q71.resposta1 = "Infecticidio";
+        Q71.resposta2 = "Nidere";
+        Q71.resposta3 = "Ceifador Espiral";
+        Q71.resposta4 = "Sukal";
+        Q71.resposta5 = "Zumbi de Sangue";
+        Q71.respostacerta = 1;
+        Q71.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaQuestoes.Add(Q71);
+
+        var Q72 = new Questao();
+        Q72.Nivel = 8;
+        Q72.pergunta = "Qual foi o nome dado para a mansão de Desconjuração?";
+        Q72.resposta1 = "Mansão Assombrada";
+        Q72.resposta2 = "Mansão Encapetada";
+        Q72.resposta3 = "Mansão Santificada";
+        Q72.resposta4 = "Mansão Endiabrada";
+        Q72.resposta5 = "Mansão Enjuriada";
+        Q72.respostacerta = 4;
+        Q72.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaQuestoes.Add(Q72);
+
+         var Q73 = new Questao();
+        Q73.Nivel = 8;
+        Q73.pergunta = "Quem foi o primeiro a morrer na Mansão Endiabrada?";
+        Q73.resposta1 = "Beatrcie";
+        Q73.resposta2 = "Trsitan";
+        Q73.resposta3 = "Tim";
+        Q73.resposta4 = "Eduarda";
+        Q73.resposta5 = "Luciano";
+        Q73.respostacerta = 2;
+        Q73.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaQuestoes.Add(Q73);
+
+        var Q74 = new Questao();
+        Q74.Nivel = 8;
+        Q74.pergunta = "Em qual sentido que o Dante perdeu por conta do paranormal?";
+        Q74.resposta1 = "Tato";
+        Q74.resposta2 = "Paladar";
+        Q74.resposta3 = "Olfato";
+        Q74.resposta4 = "Visão";
+        Q74.resposta5 = "Audição";
+        Q74.respostacerta = 4;
+        Q74.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaQuestoes.Add(Q74);
+
+        var Q75 = new Questao();
+        Q75.Nivel = 8;
+        Q75.pergunta = "Que personagem disse 'CINÉRARIA'";
+        Q75.resposta1 = "Kaiser";
+        Q75.resposta2 = "Joui";
+        Q75.resposta3 = "Olfato";
+        Q75.resposta4 = "Visão";
+        Q75.resposta5 = "Audição";
+        Q75.respostacerta = 4;
+        Q75.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaQuestoes.Add(Q75);
+
+
+       
 
     }
-
 }
