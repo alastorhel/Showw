@@ -2,28 +2,27 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Showw.MainPage"
-              BackgroundColor="#338f76"
+             BackgroundColor="#338f76"
              Shell.NavBarIsVisible="false">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
-            <Image
-                Source="milhao.png"
-                HeightRequest="205"
-                Aspect="AspectFit"
-                SemanticProperties.Description="dot net bot in a race car number eight" />
 
-           
+    <Grid  RowSpacing="5"
+           ColumnSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="50"/>
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me" 
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Fill" />
-        </VerticalStackLayout>
-    </ScrollView>
+        </Grid.RowDefinitions>
 
+        <Image Source="milhao.pan"
+        Grid.Row="0"/>
+
+        <Label Text="Parabéns!!!! Venceu em algo :)"
+         TextColor="#338f76"
+         Padding="0,0,0,0"/>
+        
+
+     </Grid>
 </ContentPage>

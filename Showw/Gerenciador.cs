@@ -7,9 +7,9 @@ namespace Showw;
 
 public class Gerenciador
 {
-    List<Questao> ListaQuestoes = new List<Questao>();
-    List<int> ListaQuestoesRespondidas = new List<int>();
-    Questao questaoCorrente;
+    List<Questao> ListaTodasQuestoes = new List<Questao>();
+    List<int> ListaTodasQuestoesRespondidas = new List<int>();
+    Questao novaQuestao;
      
      Label labelPontuacao;
      Label labelNivel;
@@ -23,21 +23,13 @@ public class Gerenciador
     }
 
        
-    public void ProximaPergunta()
-    {
-        var numRandomico = Random.Shared.Next(0, ListaQuestoes.Count - 1);
-        while (ListaQuestoesRespondidas.Contains(numRandomico))
-            numRandomico = Random.Shared.Next(0, ListaQuestoes.Count - 1);
-        ListaQuestoesRespondidas.Add(numRandomico);
-        questaoCorrente = ListaQuestoes[numRandomico];
-        questaoCorrente.Desenhar();
-    }
+    
     public async void VerificaCorreto(int resposta)
     {
             
               
 
-        if (questaoCorrente!.VerificarResposta(resposta))
+        if (novaQuestao!.VerificarResposta(resposta))
         {
             await Task.Delay(1500);
              labelPontuacao.Text = "Pontuação:R$" + Pontuacao.ToString();
@@ -96,6 +88,24 @@ public class Gerenciador
     }
 
 
+     public void ProximaPergunta()
+     {
+        var ListaQuestoes = ListaTodasQuestoes.Where(d => d.Nivel == NivelAtual).ToList();
+        var numRandomico = Random.Shared.Next(0, ListaQuestoes.Count - 1);
+
+        novaQuestao = ListaQuestoes[numRandomico];
+
+        while (ListaTodasQuestoesRespondidas.Contains(novaQuestao))
+        {
+            numRandomico = Random.Shared.Next(0, ListaQuestoes.Count - 1);
+            novaQuestao = ListaQuestoes[numRandomico];
+        }
+
+        ListaTodasQuestoesRespondidas.Add(novaQuestao);
+
+        novaQuestao.Desenhar();
+     }
+
     void CriarQuestoes(Label labelPergunta, Button BotaoResposta1, Button BotaoResposta2, Button BotaoResposta3, Button BotaoResposta4, Button BotaoResposta5)
     {
         var Q1 = new Questao();
@@ -109,7 +119,7 @@ public class Gerenciador
         Q1.respostacerta = 5;
         Q1.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q1);
+        ListaTodasQuestoes.Add(Q1);
 
         var Q2 = new Questao();
         Q2.Nivel = 1;
@@ -122,7 +132,7 @@ public class Gerenciador
         Q2.respostacerta = 5;
         Q2.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q2);
+        ListaTodasQuestoes.Add(Q2);
 
         var Q4 = new Questao();
         Q4.Nivel = 1;
@@ -135,7 +145,7 @@ public class Gerenciador
         Q4.respostacerta = 4;
         Q4.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q4);
+        ListaTodasQuestoes.Add(Q4);
 
         var Q5 = new Questao();
         Q5.Nivel = 1;
@@ -148,7 +158,7 @@ public class Gerenciador
         Q5.respostacerta = 1;
         Q5.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q5);
+        ListaTodasQuestoes.Add(Q5);
 
         var Q6 = new Questao();
         Q6.Nivel = 1;
@@ -161,7 +171,7 @@ public class Gerenciador
         Q6.respostacerta = 2;
         Q6.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q6);
+        ListaTodasQuestoes.Add(Q6);
 
         var Q7 = new Questao();
         Q7.Nivel = 1;
@@ -174,7 +184,7 @@ public class Gerenciador
         Q7.respostacerta = 3;
         Q7.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q7);
+        ListaTodasQuestoes.Add(Q7);
 
         var Q8 = new Questao();
         Q8.Nivel = 1;
@@ -187,7 +197,7 @@ public class Gerenciador
         Q8.respostacerta = 3;
         Q8.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q8);
+        ListaTodasQuestoes.Add(Q8);
 
 
         var Q9 = new Questao();
@@ -201,7 +211,7 @@ public class Gerenciador
         Q9.respostacerta = 2;
         Q9.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q9);
+        ListaTodasQuestoes.Add(Q9);
 
         var Q10 = new Questao();
         Q10.Nivel = 1;
@@ -214,7 +224,7 @@ public class Gerenciador
         Q10.respostacerta = 2;
         Q10.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q10);
+        ListaTodasQuestoes.Add(Q10);
 
 
         var Q11 = new Questao();
@@ -228,7 +238,7 @@ public class Gerenciador
         Q11.respostacerta = 3;
         Q11.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q11);
+        ListaTodasQuestoes.Add(Q11);
 
 
 
@@ -243,7 +253,7 @@ public class Gerenciador
         Q12.respostacerta = 3;
         Q12.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q12);
+        ListaTodasQuestoes.Add(Q12);
 
 
 
@@ -258,7 +268,7 @@ public class Gerenciador
         Q13.respostacerta = 4;
         Q13.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q13);
+        ListaTodasQuestoes.Add(Q13);
 
         var Q14 = new Questao();
         Q14.Nivel = 2;
@@ -271,7 +281,7 @@ public class Gerenciador
         Q14.respostacerta = 1;
         Q14.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q14);
+        ListaTodasQuestoes.Add(Q14);
 
         var Q15 = new Questao();
         Q15.Nivel = 2;
@@ -284,7 +294,7 @@ public class Gerenciador
         Q15.respostacerta = 2;
         Q15.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q15);
+        ListaTodasQuestoes.Add(Q15);
 
         var Q16 = new Questao();
         Q16.Nivel = 2;
@@ -297,7 +307,7 @@ public class Gerenciador
         Q16.respostacerta = 1;
         Q16.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q16);
+        ListaTodasQuestoes.Add(Q16);
 
         var Q17 = new Questao();
         Q17.Nivel = 2;
@@ -310,7 +320,7 @@ public class Gerenciador
         Q17.respostacerta = 5;
         Q17.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q17);
+        ListaTodasQuestoes.Add(Q17);
 
         var Q18 = new Questao();
         Q18.Nivel = 2;
@@ -323,7 +333,7 @@ public class Gerenciador
         Q18.respostacerta = 2;
         Q18.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q18);
+        ListaTodasQuestoes.Add(Q18);
 
         var Q19 = new Questao();
         Q19.Nivel = 2;
@@ -336,7 +346,7 @@ public class Gerenciador
         Q19.respostacerta = 4;
         Q19.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q19);
+        ListaTodasQuestoes.Add(Q19);
 
         var Q20 = new Questao();
         Q20.Nivel = 2;
@@ -349,7 +359,7 @@ public class Gerenciador
         Q20.respostacerta = 2;
         Q20.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q20);
+        ListaTodasQuestoes.Add(Q20);
 
 
         var Q21 = new Questao();
@@ -363,7 +373,7 @@ public class Gerenciador
         Q21.respostacerta = 2;
         Q21.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q21);
+        ListaTodasQuestoes.Add(Q21);
 
         var Q22 = new Questao();
         Q22.Nivel = 3;
@@ -376,7 +386,7 @@ public class Gerenciador
         Q22.respostacerta = 4;
         Q22.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q22);
+        ListaTodasQuestoes.Add(Q22);
 
 
         var Q23 = new Questao();
@@ -390,7 +400,7 @@ public class Gerenciador
         Q23.respostacerta = 4;
         Q23.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q23);
+        ListaTodasQuestoes.Add(Q23);
 
 
 
@@ -405,7 +415,7 @@ public class Gerenciador
         Q24.respostacerta = 2;
         Q24.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q24);
+        ListaTodasQuestoes.Add(Q24);
 
 
 
@@ -420,7 +430,7 @@ public class Gerenciador
         Q25.respostacerta = 1;
         Q25.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q25);
+        ListaTodasQuestoes.Add(Q25);
 
 
         var Q26 = new Questao();
@@ -434,7 +444,7 @@ public class Gerenciador
         Q26.respostacerta = 5;
         Q26.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q26);
+        ListaTodasQuestoes.Add(Q26);
 
 
         var Q27 = new Questao();
@@ -448,7 +458,7 @@ public class Gerenciador
         Q27.respostacerta = 2;
         Q27.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q27);
+        ListaTodasQuestoes.Add(Q27);
 
 
         var Q28 = new Questao();
@@ -462,7 +472,7 @@ public class Gerenciador
         Q28.respostacerta = 3;
         Q28.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q28);
+        ListaTodasQuestoes.Add(Q28);
 
 
         var Q29 = new Questao();
@@ -476,7 +486,7 @@ public class Gerenciador
         Q29.respostacerta = 2;
         Q29.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q29);
+        ListaTodasQuestoes.Add(Q29);
 
 
         var Q30 = new Questao();
@@ -490,7 +500,7 @@ public class Gerenciador
         Q30.respostacerta = 1;
         Q30.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q30);
+        ListaTodasQuestoes.Add(Q30);
 
         var Q31 = new Questao();
         Q31.Nivel = 3;
@@ -503,7 +513,7 @@ public class Gerenciador
         Q31.respostacerta = 4;
         Q31.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q31);
+        ListaTodasQuestoes.Add(Q31);
 
 
         var Q32 = new Questao();
@@ -517,7 +527,7 @@ public class Gerenciador
         Q32.respostacerta = 2;
         Q32.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q32);
+        ListaTodasQuestoes.Add(Q32);
 
 
         var Q33 = new Questao();
@@ -531,7 +541,7 @@ public class Gerenciador
         Q33.respostacerta = 1;
         Q33.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q33);
+        ListaTodasQuestoes.Add(Q33);
 
 
         var Q34 = new Questao();
@@ -545,7 +555,7 @@ public class Gerenciador
         Q34.respostacerta = 4;
         Q34.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q34);
+        ListaTodasQuestoes.Add(Q34);
 
 
         var Q35 = new Questao();
@@ -559,7 +569,7 @@ public class Gerenciador
         Q35.respostacerta = 2;
         Q35.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q35);
+        ListaTodasQuestoes.Add(Q35);
 
 
         var Q36 = new Questao();
@@ -573,7 +583,7 @@ public class Gerenciador
         Q36.respostacerta = 5;
         Q36.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q36);
+        ListaTodasQuestoes.Add(Q36);
 
 
 
@@ -588,7 +598,7 @@ public class Gerenciador
         Q37.respostacerta = 2;
         Q37.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q37);
+        ListaTodasQuestoes.Add(Q37);
 
 
         var Q38 = new Questao();
@@ -602,7 +612,7 @@ public class Gerenciador
         Q38.respostacerta = 3;
         Q38.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q38);
+        ListaTodasQuestoes.Add(Q38);
 
 
 
@@ -617,7 +627,7 @@ public class Gerenciador
         Q39.respostacerta = 4;
         Q39.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q39);
+        ListaTodasQuestoes.Add(Q39);
 
 
         var Q40 = new Questao();
@@ -631,7 +641,7 @@ public class Gerenciador
         Q40.respostacerta = 1;
         Q40.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q40);
+        ListaTodasQuestoes.Add(Q40);
 
 
         var Q41 = new Questao();
@@ -645,7 +655,7 @@ public class Gerenciador
         Q41.respostacerta = 2;
         Q41.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q41);
+        ListaTodasQuestoes.Add(Q41);
 
 
         var Q42 = new Questao();
@@ -659,7 +669,7 @@ public class Gerenciador
         Q42.respostacerta = 1;
         Q42.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q42);
+        ListaTodasQuestoes.Add(Q42);
 
 
         var Q43 = new Questao();
@@ -673,7 +683,7 @@ public class Gerenciador
         Q43.respostacerta = 2;
         Q43.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q43);
+        ListaTodasQuestoes.Add(Q43);
 
 
 
@@ -688,7 +698,7 @@ public class Gerenciador
         Q44.respostacerta = 4;
         Q44.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q39);
+        ListaTodasQuestoes.Add(Q39);
 
 
         var Q45 = new Questao();
@@ -702,7 +712,7 @@ public class Gerenciador
         Q45.respostacerta = 4;
         Q45.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q45);
+        ListaTodasQuestoes.Add(Q45);
 
         var Q46 = new Questao();
         Q46.Nivel = 5;
@@ -715,7 +725,7 @@ public class Gerenciador
         Q46.respostacerta = 5;
         Q46.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q46);
+        ListaTodasQuestoes.Add(Q46);
 
         var Q47 = new Questao();
         Q47.Nivel = 5;
@@ -728,7 +738,7 @@ public class Gerenciador
         Q47.respostacerta = 5;
         Q47.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q47);
+        ListaTodasQuestoes.Add(Q47);
 
         var Q48 = new Questao();
         Q48.Nivel = 5;
@@ -741,7 +751,7 @@ public class Gerenciador
         Q48.respostacerta = 3;
         Q48.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q48);
+        ListaTodasQuestoes.Add(Q48);
 
         var Q49 = new Questao();
         Q49.Nivel = 5;
@@ -754,7 +764,7 @@ public class Gerenciador
         Q49.respostacerta = 4;
         Q49.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q49);
+        ListaTodasQuestoes.Add(Q49);
 
         var Q50 = new Questao();
         Q50.Nivel = 5;
@@ -767,7 +777,7 @@ public class Gerenciador
         Q50.respostacerta = 1;
         Q50.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q50);
+        ListaTodasQuestoes.Add(Q50);
 
 
         var Q51 = new Questao();
@@ -781,7 +791,7 @@ public class Gerenciador
         Q51.respostacerta = 5;
         Q51.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q51);
+        ListaTodasQuestoes.Add(Q51);
 
         var Q52 = new Questao();
         Q52.Nivel = 6;
@@ -794,7 +804,7 @@ public class Gerenciador
         Q52.respostacerta = 1;
         Q52.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q52);
+        ListaTodasQuestoes.Add(Q52);
 
         var Q53 = new Questao();
         Q53.Nivel = 6;
@@ -807,7 +817,7 @@ public class Gerenciador
         Q53.respostacerta = 3;
         Q53.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q53);
+        ListaTodasQuestoes.Add(Q53);
 
         var Q54 = new Questao();
         Q54.Nivel = 6;
@@ -820,7 +830,7 @@ public class Gerenciador
         Q54.respostacerta = 1;
         Q54.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q54);
+        ListaTodasQuestoes.Add(Q54);
 
         var Q55 = new Questao();
         Q55.Nivel = 6;
@@ -833,7 +843,7 @@ public class Gerenciador
         Q55.respostacerta = 3;
         Q55.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q55);
+        ListaTodasQuestoes.Add(Q55);
 
         var Q56 = new Questao();
         Q56.Nivel = 6;
@@ -846,7 +856,7 @@ public class Gerenciador
         Q56.respostacerta = 4;
         Q56.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q56);
+        ListaTodasQuestoes.Add(Q56);
 
         var Q57 = new Questao();
         Q57.Nivel = 6;
@@ -859,7 +869,7 @@ public class Gerenciador
         Q57.respostacerta = 5;
         Q57.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q57);
+        ListaTodasQuestoes.Add(Q57);
 
 
         var Q58 = new Questao();
@@ -873,7 +883,7 @@ public class Gerenciador
         Q58.respostacerta = 3;
         Q58.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q58);
+        ListaTodasQuestoes.Add(Q58);
 
         var Q59 = new Questao();
         Q59.Nivel = 6;
@@ -886,7 +896,7 @@ public class Gerenciador
         Q59.respostacerta = 2;
         Q59.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q59);
+        ListaTodasQuestoes.Add(Q59);
 
 
         var Q60 = new Questao();
@@ -900,7 +910,7 @@ public class Gerenciador
         Q60.respostacerta = 5;
         Q60.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q60);
+        ListaTodasQuestoes.Add(Q60);
 
 
 
@@ -915,7 +925,7 @@ public class Gerenciador
         Q61.respostacerta = 2;
         Q61.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q61);
+        ListaTodasQuestoes.Add(Q61);
 
 
 
@@ -930,7 +940,7 @@ public class Gerenciador
         Q62.respostacerta = 5;
         Q62.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q62);
+        ListaTodasQuestoes.Add(Q62);
 
         var Q63 = new Questao();
         Q63.Nivel = 7;
@@ -943,7 +953,7 @@ public class Gerenciador
         Q63.respostacerta = 2;
         Q63.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q63);
+        ListaTodasQuestoes.Add(Q63);
 
         var Q64 = new Questao();
         Q64.Nivel = 7;
@@ -956,7 +966,7 @@ public class Gerenciador
         Q64.respostacerta = 1;
         Q64.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q64);
+        ListaTodasQuestoes.Add(Q64);
 
         var Q65 = new Questao();
         Q65.Nivel = 7;
@@ -969,7 +979,7 @@ public class Gerenciador
         Q65.respostacerta = 4;
         Q65.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q65);
+        ListaTodasQuestoes.Add(Q65);
 
         var Q66 = new Questao();
         Q66.Nivel = 7;
@@ -982,7 +992,7 @@ public class Gerenciador
         Q66.respostacerta = 3;
         Q66.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q66);
+        ListaTodasQuestoes.Add(Q66);
 
         var Q67 = new Questao();
         Q67.Nivel = 7;
@@ -995,7 +1005,7 @@ public class Gerenciador
         Q67.respostacerta = 2;
         Q67.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q67);
+        ListaTodasQuestoes.Add(Q67);
 
         var Q68 = new Questao();
         Q68.Nivel = 7;
@@ -1008,7 +1018,7 @@ public class Gerenciador
         Q68.respostacerta = 3;
         Q68.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q68);
+        ListaTodasQuestoes.Add(Q68);
 
         var Q69 = new Questao();
         Q69.Nivel = 7;
@@ -1021,7 +1031,7 @@ public class Gerenciador
         Q69.respostacerta = 5;
         Q69.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q69);
+        ListaTodasQuestoes.Add(Q69);
 
         var Q70 = new Questao();
         Q70.Nivel = 7;
@@ -1034,7 +1044,7 @@ public class Gerenciador
         Q70.respostacerta = 2;
         Q70.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q70);
+        ListaTodasQuestoes.Add(Q70);
 
         var Q71 = new Questao();
         Q71.Nivel = 7;
@@ -1047,7 +1057,7 @@ public class Gerenciador
         Q71.respostacerta = 1;
         Q71.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q71);
+        ListaTodasQuestoes.Add(Q71);
 
         var Q72 = new Questao();
         Q72.Nivel = 8;
@@ -1060,7 +1070,7 @@ public class Gerenciador
         Q72.respostacerta = 4;
         Q72.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q72);
+        ListaTodasQuestoes.Add(Q72);
 
          var Q73 = new Questao();
         Q73.Nivel = 8;
@@ -1073,7 +1083,7 @@ public class Gerenciador
         Q73.respostacerta = 2;
         Q73.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q73);
+        ListaTodasQuestoes.Add(Q73);
 
         var Q74 = new Questao();
         Q74.Nivel = 8;
@@ -1086,7 +1096,7 @@ public class Gerenciador
         Q74.respostacerta = 4;
         Q74.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q74);
+        ListaTodasQuestoes.Add(Q74);
 
         var Q75 = new Questao();
         Q75.Nivel = 8;
@@ -1099,7 +1109,7 @@ public class Gerenciador
         Q75.respostacerta = 4;
         Q75.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-        ListaQuestoes.Add(Q75);
+        ListaTodasQuestoes.Add(Q75);
 
 
        

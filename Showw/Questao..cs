@@ -2,7 +2,7 @@ namespace Showw;
 
 
 
-public class Questao
+public class Questao: IEquatable<Questao>
 {
 
     public string pergunta;
@@ -118,5 +118,10 @@ public class Questao
             return buttonResposta5;
         else 
                 return null;
+    }
+
+    public bool Equals(Questao q)
+    {
+        return this.Nivel == q.Nivel;
     }
 }
