@@ -6,23 +6,29 @@
              Shell.NavBarIsVisible="false">
 
 
-    <Grid  RowSpacing="5"
-           ColumnSpacing="10">
+   <Grid RowSpacing="10">
         <Grid.RowDefinitions>
+            <RowDefinition Height="370"/>
+            <RowDefinition Height="150"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="50"/>
-
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Image Source="milhao.pan"
+        <Image Source="milhao.png"
         Grid.Row="0"/>
 
-        <Label Text="Parabéns!!!! Venceu em algo :)"
-         TextColor="#338f76"
-         Padding="0,0,0,0"/>
-        
+        <Label  Text="PARABÉNS, VOCÊ FINALMENTE GANHOU EM ALGO!!"
+                TextColor="#abee93"
+                Padding="5,10,5,0"
+                HorizontalTextAlignment="Center"
+                BackgroundColor="#2d938e"
+                Grid.Row="1"/>
 
-     </Grid>
+        <Button Text="Voltar para o inicio"
+                Grid.Row="2"
+                TextColor="#2d938e"
+                Clicked="Voltar"
+                BackgroundColor="#abee93"/>
+
+        </Grid>
 </ContentPage>

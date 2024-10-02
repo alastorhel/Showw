@@ -8,11 +8,11 @@ namespace Showw;
 public class Gerenciador
 {
     List<Questao> ListaTodasQuestoes = new List<Questao>();
-    List<int> ListaTodasQuestoesRespondidas = new List<int>();
+    List<Questao> ListaTodasQuestoesRespondidas = new List<Questao>();
     Questao novaQuestao;
-     
-     Label labelPontuacao;
-     Label labelNivel;
+
+    Label labelPontuacao;
+    Label labelNivel;
 
 
     public Gerenciador(Label labelPergunta, Button BotaoResposta1, Button BotaoResposta2, Button BotaoResposta3, Button BotaoResposta4, Button BotaoResposta5, Label labelPontuacao, Label labelNivel)
@@ -22,26 +22,27 @@ public class Gerenciador
         this.labelNivel = labelNivel;
     }
 
-       
-    
+
+
     public async void VerificaCorreto(int resposta)
     {
-            
-              
+
+
 
         if (novaQuestao!.VerificarResposta(resposta))
         {
             await Task.Delay(1500);
-             labelPontuacao.Text = "Pontuação:R$" + Pontuacao.ToString();
-            labelNivel.Text = "Nivel" + NivelAtual.ToString();
             AdicionaPontucao(NivelAtual);
             NivelAtual++;
             ProximaPergunta();
+            labelPontuacao.Text = "Pontuação:R$" + Pontuacao.ToString();
+            labelNivel.Text = "Nivel" + NivelAtual.ToString();
+
             if (NivelAtual == 10)
             {
-                  Application.Current.MainPage = new MainPage();
+                Application.Current.MainPage = new MainPage();
             }
-            
+
         }
         else
         {
@@ -76,20 +77,23 @@ public class Gerenciador
     }
 
     public int Pontuacao { get; private set; }
-    int NivelAtual = 0;
+    int NivelAtual = 1;
 
     void Inicializar()
     {
+
         Pontuacao = 0;
-        NivelAtual = 0;
+        NivelAtual = 1;
+        ListaTodasQuestoesRespondidas.Clear();
         ProximaPergunta();
         labelPontuacao.Text = "Pontuação:R$" + Pontuacao.ToString();
-            labelNivel.Text = "Nivel" + NivelAtual.ToString();
+        labelNivel.Text = "Nivel" + NivelAtual.ToString();
+
     }
 
 
-     public void ProximaPergunta()
-     {
+    public void ProximaPergunta()
+    {
         var ListaQuestoes = ListaTodasQuestoes.Where(d => d.Nivel == NivelAtual).ToList();
         var numRandomico = Random.Shared.Next(0, ListaQuestoes.Count - 1);
 
@@ -104,7 +108,7 @@ public class Gerenciador
         ListaTodasQuestoesRespondidas.Add(novaQuestao);
 
         novaQuestao.Desenhar();
-     }
+    }
 
     void CriarQuestoes(Label labelPergunta, Button BotaoResposta1, Button BotaoResposta2, Button BotaoResposta3, Button BotaoResposta4, Button BotaoResposta5)
     {
@@ -801,7 +805,7 @@ public class Gerenciador
         Q52.resposta3 = "Liz";
         Q52.resposta4 = "Daniel";
         Q52.resposta5 = "Alex";
-        Q52.respostacerta = 1;
+        Q52.respostacerta = 2;
         Q52.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
         ListaTodasQuestoes.Add(Q52);
@@ -1072,7 +1076,7 @@ public class Gerenciador
 
         ListaTodasQuestoes.Add(Q72);
 
-         var Q73 = new Questao();
+        var Q73 = new Questao();
         Q73.Nivel = 8;
         Q73.pergunta = "Quem foi o primeiro a morrer na Mansão Endiabrada?";
         Q73.resposta1 = "Beatrcie";
@@ -1103,16 +1107,371 @@ public class Gerenciador
         Q75.pergunta = "Que personagem disse 'CINÉRARIA'";
         Q75.resposta1 = "Kaiser";
         Q75.resposta2 = "Joui";
-        Q75.resposta3 = "Olfato";
-        Q75.resposta4 = "Visão";
-        Q75.resposta5 = "Audição";
-        Q75.respostacerta = 4;
+        Q75.resposta3 = "Arthur ";
+        Q75.resposta4 = "Dante";
+        Q75.resposta5 = "Erin";
+        Q75.respostacerta = 1;
         Q75.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
         ListaTodasQuestoes.Add(Q75);
 
+        var Q76 = new Questao();
+        Q76.Nivel = 8;
+        Q76.pergunta = "Que personagem disse 'CINÉRARIA'";
+        Q76.resposta1 = "Kaiser";
+        Q76.resposta2 = "Joui";
+        Q76.resposta3 = "Arthur";
+        Q76.resposta4 = "Dante";
+        Q76.resposta5 = "Erin";
+        Q76.respostacerta = 1;
+        Q76.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
 
-       
+        ListaTodasQuestoes.Add(Q76);
+
+
+
+        var Q77 = new Questao();
+        Q77.Nivel = 8;
+        Q77.pergunta = "Que personagem disse 'CINÉRARIA'";
+        Q77.resposta1 = "Kaiser";
+        Q77.resposta2 = "Joui";
+        Q77.resposta3 = "Arthur";
+        Q77.resposta4 = "Dante";
+        Q77.resposta5 = "Erin";
+        Q77.respostacerta = 1;
+        Q77.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaTodasQuestoes.Add(Q77);
+
+
+
+
+        var Q78 = new Questao();
+        Q78.Nivel = 8;
+        Q78.pergunta = "Que personagem disse 'CINÉRARIA'";
+        Q78.resposta1 = "Kaiser";
+        Q78.resposta2 = "Joui";
+        Q78.resposta3 = "Arthur";
+        Q78.resposta4 = "Dante";
+        Q78.resposta5 = "Erin";
+        Q78.respostacerta = 1;
+        Q78.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaTodasQuestoes.Add(Q78);
+
+
+
+
+        var Q79 = new Questao();
+        Q79.Nivel = 8;
+        Q79.pergunta = "Que personagem disse 'CINÉRARIA'";
+        Q79.resposta1 = "Kaiser";
+        Q79.resposta2 = "Joui";
+        Q79.resposta3 = "Arthur";
+        Q79.resposta4 = "Dante";
+        Q79.resposta5 = "Erin";
+        Q79.respostacerta = 1;
+        Q79.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaTodasQuestoes.Add(Q79);
+
+
+
+        var Q80 = new Questao();
+        Q80.Nivel = 8;
+        Q80.pergunta = "Que personagem disse 'CINÉRARIA'";
+        Q80.resposta1 = "Kaiser";
+        Q80.resposta2 = "Joui";
+        Q80.resposta3 = "Arthur";
+        Q80.resposta4 = "Dante";
+        Q80.resposta5 = "Erin";
+        Q80.respostacerta = 1;
+        Q80.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaTodasQuestoes.Add(Q80);
+
+
+
+
+        var Q81 = new Questao();
+        Q81.Nivel = 8;
+        Q81.pergunta = "Que personagem disse 'CINÉRARIA'";
+        Q81.resposta1 = "Kaiser";
+        Q81.resposta2 = "Joui";
+        Q81.resposta3 = "Arthur";
+        Q81.resposta4 = "Dante";
+        Q81.resposta5 = "Erin";
+        Q81.respostacerta = 1;
+        Q81.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaTodasQuestoes.Add(Q81);
+
+
+
+
+        var Q82 = new Questao();
+        Q82.Nivel = 9;
+        Q82.pergunta = "Que personagem disse 'CINÉRARIA'";
+        Q82.resposta1 = "Kaiser";
+        Q82.resposta2 = "Joui";
+        Q82.resposta3 = "Arthur";
+        Q82.resposta4 = "Dante";
+        Q82.resposta5 = "Erin";
+        Q82.respostacerta = 1;
+        Q82.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaTodasQuestoes.Add(Q82);
+
+
+
+
+        var Q83 = new Questao();
+        Q83.Nivel = 9;
+        Q83.pergunta = "Que personagem disse 'CINÉRARIA'";
+        Q83.resposta1 = "Kaiser";
+        Q83.resposta2 = "Joui";
+        Q83.resposta3 = "Arthur";
+        Q83.resposta4 = "Dante";
+        Q83.resposta5 = "Erin";
+        Q83.respostacerta = 1;
+        Q83.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaTodasQuestoes.Add(Q83);
+
+        var Q84 = new Questao();
+        Q84.Nivel = 9;
+        Q84.pergunta = "Que personagem disse 'CINÉRARIA'";
+        Q84.resposta1 = "Kaiser";
+        Q84.resposta2 = "Joui";
+        Q84.resposta3 = "Arthur";
+        Q84.resposta4 = "Daante";
+        Q84.resposta5 = "Erin";
+        Q84.respostacerta = 1;
+        Q84.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaTodasQuestoes.Add(Q84);
+
+        var Q85 = new Questao();
+        Q85.Nivel = 9;
+        Q85.pergunta = "Que personagem disse 'CINÉRARIA'";
+        Q85.resposta1 = "Kaiser";
+        Q85.resposta2 = "Joui";
+        Q85.resposta3 = "Arthur";
+        Q85.resposta4 = "Dante";
+        Q85.resposta5 = "Erin";
+        Q85.respostacerta = 1;
+        Q85.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaTodasQuestoes.Add(Q85);
+
+        var Q86 = new Questao();
+        Q86.Nivel = 9;
+        Q86.pergunta = "Que personagem disse 'CINÉRARIA'";
+        Q86.resposta1 = "Kaiser";
+        Q86.resposta2 = "Joui";
+        Q86.resposta3 = "Arthur";
+        Q86.resposta4 = "Dante";
+        Q86.resposta5 = "Erin";
+        Q86.respostacerta = 1;
+        Q86.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaTodasQuestoes.Add(Q86);
+
+
+        var Q87 = new Questao();
+        Q87.Nivel = 9;
+        Q87.pergunta = "Que personagem disse 'CINÉRARIA'";
+        Q87.resposta1 = "Kaiser";
+        Q87.resposta2 = "Joui";
+        Q87.resposta3 = "Arthur";
+        Q87.resposta4 = "Dante";
+        Q87.resposta5 = "Erin";
+        Q87.respostacerta = 1;
+        Q87.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaTodasQuestoes.Add(Q87);
+
+        var Q88 = new Questao();
+        Q88.Nivel = 9;
+        Q88.pergunta = "Que personagem disse 'CINÉRARIA'";
+        Q88.resposta1 = "Kaiser";
+        Q88.resposta2 = "Joui";
+        Q88.resposta3 = "Arthur";
+        Q88.resposta4 = "Dante";
+        Q88.resposta5 = "Erin";
+        Q88.respostacerta = 1;
+        Q88.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaTodasQuestoes.Add(Q88);
+
+        var Q89 = new Questao();
+        Q89.Nivel = 9;
+        Q89.pergunta = "Que personagem disse 'CINÉRARIA'";
+        Q89.resposta1 = "Kaiser";
+        Q89.resposta2 = "Joui";
+        Q89.resposta3 = "Arthur";
+        Q89.resposta4 = "Dante";
+        Q89.resposta5 = "Erin";
+        Q89.respostacerta = 1;
+        Q89.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaTodasQuestoes.Add(Q89);
+
+
+        var Q90 = new Questao();
+        Q90.Nivel = 9;
+        Q90.pergunta = "Que personagem disse 'CINÉRARIA'";
+        Q90.resposta1 = "Kaiser";
+        Q90.resposta2 = "Joui";
+        Q90.resposta3 = "Arthur";
+        Q90.resposta4 = "Dante";
+        Q90.resposta5 = "Erin";
+        Q90.respostacerta = 1;
+        Q90.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaTodasQuestoes.Add(Q90);
+
+
+        var Q91 = new Questao();
+        Q91.Nivel = 9;
+        Q91.pergunta = "Que personagem disse 'CINÉRARIA'";
+        Q91.resposta1 = "Kaiser";
+        Q91.resposta2 = "Joui";
+        Q91.resposta3 = "Arthur";
+        Q91.resposta4 = "Dante";
+        Q91.resposta5 = "Erin";
+        Q91.respostacerta = 1;
+        Q91.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaTodasQuestoes.Add(Q91);
+
+
+        var Q92 = new Questao();
+        Q92.Nivel = 10;
+        Q92.pergunta = "Que personagem disse 'CINÉRARIA'";
+        Q92.resposta1 = "Kaiser";
+        Q92.resposta2 = "Joui";
+        Q92.resposta3 = "Arthur";
+        Q92.resposta4 = "Dante";
+        Q92.resposta5 = "Erin";
+        Q92.respostacerta = 1;
+        Q92.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+
+        ListaTodasQuestoes.Add(Q92);
+
+
+
+        var Q93 = new Questao();
+        Q93.Nivel = 10;
+        Q93.pergunta = "Qual a capital da França?";
+        Q93.resposta1 = "Berlim";
+        Q93.resposta2 = "Madrid";
+        Q93.resposta3 = "Paris";
+        Q93.resposta4 = "Lisboa";
+        Q93.resposta5 = "Roma";
+        Q93.respostacerta = 3;
+        Q93.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+        ListaTodasQuestoes.Add(Q93);
+
+        var Q94 = new Questao();
+        Q94.Nivel = 10;
+        Q94.pergunta = "Qual é o maior planeta do sistema solar?";
+        Q94.resposta1 = "Terra";
+        Q94.resposta2 = "Marte";
+        Q94.resposta3 = "Júpiter";
+        Q94.resposta4 = "Saturno";
+        Q94.resposta5 = "Netuno";
+        Q94.respostacerta = 3;
+        Q94.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+        ListaTodasQuestoes.Add(Q94);
+
+        var Q95 = new Questao();
+        Q95.Nivel = 10;
+        Q95.pergunta = "Qual o elemento químico com símbolo 'O'?";
+        Q95.resposta1 = "Ouro";
+        Q95.resposta2 = "Oxigênio";
+        Q95.resposta3 = "Prata";
+        Q95.resposta4 = "Água";
+        Q95.resposta5 = "Ferro";
+        Q95.respostacerta = 2;
+        Q95.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+        ListaTodasQuestoes.Add(Q95);
+
+        var Q96 = new Questao();
+        Q96.Nivel = 10;
+        Q96.pergunta = "Quem escreveu 'Dom Casmurro'?";
+        Q96.resposta1 = "Machado de Assis";
+        Q96.resposta2 = "Joaquim Maria Machado";
+        Q96.resposta3 = "Clarice Lispector";
+        Q96.resposta4 = "José de Alencar";
+        Q96.resposta5 = "Graciliano Ramos";
+        Q96.respostacerta = 1;
+        Q96.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+        ListaTodasQuestoes.Add(Q96);
+
+        var Q97 = new Questao();
+        Q97.Nivel = 10;
+        Q97.pergunta = "Qual é o oceano mais profundo do mundo?";
+        Q97.resposta1 = "Atlântico";
+        Q97.resposta2 = "Índico";
+        Q97.resposta3 = "Pacífico";
+        Q97.resposta4 = "Ártico";
+        Q97.resposta5 = "Antártico";
+        Q97.respostacerta = 3;
+        Q97.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+        ListaTodasQuestoes.Add(Q97);
+
+        var Q98 = new Questao();
+        Q98.Nivel = 10;
+        Q98.pergunta = "Qual a fórmula da água?";
+        Q98.resposta1 = "CO2";
+        Q98.resposta2 = "H2O";
+        Q98.resposta3 = "NaCl";
+        Q98.resposta4 = "C6H12O6";
+        Q98.resposta5 = "H2SO4";
+        Q98.respostacerta = 2;
+        Q98.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+        ListaTodasQuestoes.Add(Q98);
+
+        var Q99 = new Questao();
+        Q99.Nivel = 10;
+        Q99.pergunta = "Qual o maior animal terrestre?";
+        Q99.resposta1 = "Elefante";
+        Q99.resposta2 = "Girafa";
+        Q99.resposta3 = "Rinoceronte";
+        Q99.resposta4 = "Hipopótamo";
+        Q99.resposta5 = "Baleia Azul";
+        Q99.respostacerta = 1;
+        Q99.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+        ListaTodasQuestoes.Add(Q99);
+
+        var Q100 = new Questao();
+        Q100.Nivel = 10;
+        Q100.pergunta = "Qual é a capital do Brasil?";
+        Q100.resposta1 = "São Paulo";
+        Q100.resposta2 = "Brasília";
+        Q100.resposta3 = "Rio de Janeiro";
+        Q100.resposta4 = "Salvador";
+        Q100.resposta5 = "Fortaleza";
+        Q100.respostacerta = 2;
+        Q100.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+        ListaTodasQuestoes.Add(Q100);
+
+
+        var Q101 = new Questao();
+        Q101.Nivel = 10;
+        Q101.pergunta = "Qual é a capital do Brasil?";
+        Q101.resposta1 = "São Paulo";
+        Q101.resposta2 = "Brasília";
+        Q101.resposta3 = "Rio de Janeiro";
+        Q101.resposta4 = "Salvador";
+        Q101.resposta5 = "Fortaleza";
+        Q101.respostacerta = 2;
+        Q101.ConfigurarEstruturaDesenho(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+        ListaTodasQuestoes.Add(Q101);
+
+     
+
 
     }
 }

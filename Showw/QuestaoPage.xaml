@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Shell.NavBarIsVisible="false"
+             BackgroundColor="#2d938e"
              x:Class="Showw.QuestaoPage">
 
 
@@ -118,12 +119,12 @@
 
 
 
-                <Button Text="Elimine uma questão"
+                <Button Text="Ajuda"
                         TextColor="Black"
                         x:Name="BotaoResposta6"
                         Grid.Column="0"
                         Grid.Row="8"/>
-                <Button Text="Peça a probabilidade"
+                <Button Text="RetiraErrada"
                         x:Name="BotaoResposta7"
                         TextColor="Black"
                         Grid.Column="1"
