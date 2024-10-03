@@ -121,17 +121,19 @@
 
                 <Button Text="Ajuda"
                         TextColor="Black"
-                        x:Name="BotaoResposta6"
+                        x:Name="coisa1"
                         Grid.Column="0"
                         Grid.Row="8"/>
                 <Button Text="RetiraErrada"
-                        x:Name="BotaoResposta7"
+                        x:Name="coisa2"
                         TextColor="Black"
+                        Clicked="Jinx"
                         Grid.Column="1"
                         Grid.Row="8"/>
                 <Button Text="Pular"
                         TextColor="Black"
-                        x:Name="BotaoResposta8"
+                        x:Name="coisa3"
+                        Clicked="Vitrius"
                         Grid.Column="2"
                         Grid.Row="8"/>
 

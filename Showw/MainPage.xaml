@@ -17,7 +17,7 @@
         <Image Source="milhao.png"
         Grid.Row="0"/>
 
-        <Label  Text="PARABÉNS, VOCÊ FINALMENTE GANHOU EM ALGO!!"
+        <Label  Text="PARABÉNS, VOCÊ FINALMENTE GANHOU EM ALGO!! FICO IMPRESSIONADO DE VOCÊ REALMENTE GOSTAR DE ORDEM PARANORMAL!!"
                 TextColor="#abee93"
                 Padding="5,10,5,0"
                 HorizontalTextAlignment="Center"

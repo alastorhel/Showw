@@ -1,6 +1,8 @@
 
 
 
+using System.Security.Cryptography.X509Certificates;
+
 namespace Showw;
 
 
@@ -9,7 +11,7 @@ public class Gerenciador
 {
     List<Questao> ListaTodasQuestoes = new List<Questao>();
     List<Questao> ListaTodasQuestoesRespondidas = new List<Questao>();
-    Questao novaQuestao;
+    public Questao novaQuestao;
 
     Label labelPontuacao;
     Label labelNivel;
@@ -20,9 +22,14 @@ public class Gerenciador
         CriarQuestoes(labelPergunta, BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
         this.labelPontuacao = labelPontuacao;
         this.labelNivel = labelNivel;
+
+    
     }
 
-
+    public Questao GetQuestaoCorrente()
+    {
+        return Questao.Corrente;
+    }
 
     public async void VerificaCorreto(int resposta)
     {
@@ -91,6 +98,7 @@ public class Gerenciador
 
     }
 
+    
 
     public void ProximaPergunta()
     {
@@ -1474,4 +1482,6 @@ public class Gerenciador
 
 
     }
+
+   
 }

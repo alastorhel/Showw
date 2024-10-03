@@ -33,6 +33,8 @@ public class Questao: IEquatable<Questao>
 
     Button buttonResposta5;
 
+    public static Questao Corrente { get; internal set; }
+
     public void Desenhar()
     {
         labelpergunta.Text = pergunta;
@@ -52,6 +54,11 @@ public class Questao: IEquatable<Questao>
     this.buttonResposta4!.TextColor       = Colors.White;
     this.buttonResposta5!.BackgroundColor = Colors.DarkBlue;
     this.buttonResposta5!.TextColor       = Colors.White;
+    buttonResposta1.IsVisible = true;
+    buttonResposta2.IsVisible = true;
+    buttonResposta3.IsVisible = true;
+    buttonResposta4.IsVisible = true;
+    buttonResposta5.IsVisible = true;
     }
 
     public bool VerificarResposta(int respostaescolhida)
@@ -122,6 +129,6 @@ public class Questao: IEquatable<Questao>
 
     public bool Equals(Questao q)
     {
-        return this.Nivel == q.Nivel;
+        return this.Nivel == q.Nivel && this.pergunta == q.pergunta;
     }
 }
