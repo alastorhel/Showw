@@ -122,6 +122,7 @@
                 <Button Text="Ajuda"
                         TextColor="Black"
                         x:Name="coisa1"
+                        Clicked="Lucy"
                         Grid.Column="0"
                         Grid.Row="8"/>
                 <Button Text="RetiraErrada"
