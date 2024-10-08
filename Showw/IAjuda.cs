@@ -1,3 +1,4 @@
+
 namespace Showw;
 
 public abstract class IAjuda
@@ -8,6 +9,7 @@ public abstract class IAjuda
     protected Button BotaoResposta4;
     protected Button BotaoResposta5;
     protected Frame frameAjuda;
+
 
     public void ConfiguraDesenho(Button BotaoResposta1, Button BotaoResposta2, Button BotaoResposta3, Button BotaoResposta4, Button BotaoResposta5)
     {
@@ -24,5 +26,7 @@ public abstract class IAjuda
     }
 
     public abstract void RealizaAjuda(Questao questao);
+
+    
 
 }

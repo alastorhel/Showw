@@ -131,12 +131,24 @@
                         Clicked="Jinx"
                         Grid.Column="1"
                         Grid.Row="8"/>
-                <Button Text="Pular"
+                <Button Text="Pular1"
                         TextColor="Black"
                         x:Name="coisa3"
                         Clicked="Vitrius"
                         Grid.Column="2"
                         Grid.Row="8"/>
+                         <Button Text="Pular2"
+                        TextColor="Black"
+                        Clicked="Vitrius1"
+                        Grid.Column="2"
+                        Grid.Row="8"/>
+                         <Button Text="Pular3"
+                        TextColor="Black"
+                        Clicked="Vitrius2"
+                        Grid.Column="2"
+                        Grid.Row="8"/>
+                        
+
 
 
         </Grid>

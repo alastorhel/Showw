@@ -1,3 +1,4 @@
+
 namespace Showw
 {
     public partial class QuestaoPage : ContentPage
@@ -5,6 +6,8 @@ namespace Showw
         Gerenciador gerenciador;
 
         public object S { get; private set; }
+
+
 
         public QuestaoPage()
         {
@@ -50,19 +53,62 @@ namespace Showw
             coisa2.IsVisible = false;
         }
 
+        int pulou = 0;
         void Vitrius(object sender, EventArgs args)
         {
-            gerenciador.ProximaPergunta();
-            coisa3.IsVisible = false;
+             if (pulou == 0)
+                (sender as Button).IsVisible = false;
+
+            else
+            {
+                gerenciador.ProximaPergunta();
+                pulou++;
+            }
         }
 
-         void Lucy(object sender, EventArgs args)
-        {
-            var a = new Universitarios();
-            a.ConfiguraDesenho(BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
-            a.RealizaAjuda(gerenciador.novaQuestao);
-            coisa1.IsVisible = false;
-        }
 
+            int pulou1 = 1;
+            void Vitrius1(object sender, EventArgs args)
+            {
+                  if (pulou1 == 1)
+                    (sender as Button).IsVisible = false;
+
+                else
+                {
+                    gerenciador.ProximaPergunta();
+                    pulou1++;
+                }
+            }
+
+                
+
+                int pulou2 = 2;
+                void Vitrius2(object sender, EventArgs args)
+                {
+
+                    if (pulou2 == 2)
+                        (sender as Button).IsVisible = false;
+
+                    else
+                    {
+                        gerenciador.ProximaPergunta();
+                        pulou2++;
+                    }
+                }
+
+
+
+
+            
+
+            void Lucy(object sender, EventArgs args)
+            {
+                var a = new Universitarios();
+                a.ConfiguraDesenho(BotaoResposta1, BotaoResposta2, BotaoResposta3, BotaoResposta4, BotaoResposta5);
+                a.RealizaAjuda(gerenciador.novaQuestao);
+                coisa1.IsVisible = false;
+            }
+
+
+        }
     }
-}
