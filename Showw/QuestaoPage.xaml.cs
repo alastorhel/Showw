@@ -54,6 +54,8 @@ namespace Showw
         }
 
         int pulou = 0;
+        private int pula;
+
         void Vitrius(object sender, EventArgs args)
         {
              if (pulou == 0)
@@ -64,37 +66,11 @@ namespace Showw
                 gerenciador.ProximaPergunta();
                 pulou++;
             }
+            coisa3Pular.Text = "Pular" + (3 - pula) +"x";
         }
 
 
-            int pulou1 = 1;
-            void Vitrius1(object sender, EventArgs args)
-            {
-                  if (pulou1 == 1)
-                    (sender as Button).IsVisible = false;
 
-                else
-                {
-                    gerenciador.ProximaPergunta();
-                    pulou1++;
-                }
-            }
-
-                
-
-                int pulou2 = 2;
-                void Vitrius2(object sender, EventArgs args)
-                {
-
-                    if (pulou2 == 2)
-                        (sender as Button).IsVisible = false;
-
-                    else
-                    {
-                        gerenciador.ProximaPergunta();
-                        pulou2++;
-                    }
-                }
 
 
 
